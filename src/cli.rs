@@ -347,6 +347,10 @@ pub fn print_log(
             }
         }
         columns.push(values.join("  ::  "));
+        if values.iter().any(|v| v.contains("makecab.exe")) {
+    cs_eyellowln!("[!] Suspicious use of makecab.exe detected — possible LOLBIN obfuscation");
+}
+
 
         println!("{}", columns.join("  |  "));
     }
